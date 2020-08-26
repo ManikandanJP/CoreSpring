@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop" 
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+        
+ <bean id="showBean" class="com.tsi.bean.Show">
+    <property name="name" value="Master"></property>
+    <property name="time" value="7:30PM"></property>
+     <property name="price" value ="1000"></property>
+ </bean>
+ 
+ <bean id="showService" class="com.tsi.service.ShowServiceImpl"></bean>
+ 
+ <bean id="showAspect" class="com.tsi.aspects.ShowAspect"></bean>
+ 
+ <aop:config>
+      <aop:aspect id="mimicryShowAscpect" ref="showAspect" >
+             <aop:pointcut expression="execution(* com.tsi.service.ShowService.*(..))" id="showPointCut"/>
+              <aop:before method="before" pointcut-ref="showPointCut"/>
+              <aop:after method="after"   pointcut-ref="showPointCut"/>
+              <aop:after-returning method="afterReturning" pointcut-ref="showPointCut"/>
+              <aop:after-throwing method="afterThrowing" pointcut-ref="showPointCut"/>
+      </aop:aspect>
+ </aop:config>
+
+</beans>  
