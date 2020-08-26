@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!-- bean definitions here -->
+
+	<bean id="movieBean" class="com.tsi.beans.Movie">
+		<property name="movie_Name" value="Master"></property>
+		<property name="show_time" value="6PM"></property>
+		<property name="price" value="250"></property>
+	</bean>
+
+	<!-- Target -->
+	
+	<bean id="target" class="com.tsi.service.MovieServiceImpl"></bean>
+	
+	<!-- Advice -->
+	<bean id="advice" class="com.tsi.advice.MoneyReturnAdvice"></bean>
+	
+	
+	<!-- Proxy -->
+	<bean id="proxy"
+		class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="target"></property>
+		<property name="interceptorNames">
+			<list>
+				<value>advice</value>
+			</list>
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,8 @@
+Movie Details
+-------------
+Movie Name  : Master
+Show  Time  : 6PM
+Movie Price : 250
+----------------------------------------------------------------------------------------
+Power Failure Occured, Moview Was Stopped, Please come to Counter and Collect Your Money
+-----------------------------------------------------------------------------------------
