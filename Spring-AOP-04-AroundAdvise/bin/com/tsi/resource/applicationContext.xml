@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"> <!-- bean definitions here -->
+
+	<bean id="accBean" class="com.tsi.beans.Account">
+		<property name="accno" value="abc123"></property>
+		<property name="acc_Holder_Name" value="Shiwin"></property>
+		<property name="accType" value="savings"></property>
+		<property name="balance" value="25000"></property>
+
+	</bean>
+
+	<bean id="chequeBean" class="com.tsi.beans.Cheque">
+		<property name="cheque_No" value="xyz123"></property>
+		<property name="amount" value="10000"></property>
+	</bean>
+  
+    <bean id="target" class="com.tsi.service.TransactionServiceImpl"></bean>
+ 
+
+    <bean id="aroundAdvice" class="com.tsi.advisor.ChequeClearanceMethod"></bean>  
+	<bean id="proxy"
+		class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="target" />
+		<property name="interceptorNames">
+			<list>
+				<value>aroundAdvice</value>
+			</list>
+		</property>
+	</bean>
+</beans>

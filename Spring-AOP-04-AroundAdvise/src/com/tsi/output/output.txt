@@ -1,0 +1,8 @@
+Aug 26, 2020 6:03:10 PM org.springframework.context.support.ClassPathXmlApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@c4437c4: startup date [Wed Aug 26 18:03:10 IST 2020]; root of context hierarchy
+Aug 26, 2020 6:03:10 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from class path resource [com/tsi/resource/applicationContext.xml]
+Hello Shiwin!,Cheque No xyz123 is coming for Clearance with an Amount :10000
+**********Transaction Success****************
+After Execusting Biz method
+Hello Shiwin! ,Account No : abc123 has been debited amont 10000 in clerance of the Cheque no xyz123, Now the Total amount in our account is 15000
